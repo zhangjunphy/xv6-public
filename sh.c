@@ -49,11 +49,16 @@ struct backcmd {
   struct cmd *cmd;
 };
 
-int fork1(void);  // Fork but panics on failure.
+/*!
+ * Fork but panics on failure.
+ */
+int fork1(void);
 void panic(char*);
 struct cmd *parsecmd(char*);
 
-// Execute cmd.  Never returns.
+/*! 
+ * Execute cmd.  Never returns.
+ */
 void
 runcmd(struct cmd *cmd)
 {
@@ -445,7 +450,9 @@ parseexec(char **ps, char *es)
   return ret;
 }
 
-// NUL-terminate all the counted strings.
+/*!
+ * NUL-terminate all the counted strings.
+ */
 struct cmd*
 nulterminate(struct cmd *cmd)
 {
