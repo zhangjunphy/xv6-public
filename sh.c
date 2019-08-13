@@ -3,6 +3,7 @@
 #include "types.h"
 #include "user.h"
 #include "fcntl.h"
+#include "x86.h"
 
 // Parsed command representation
 #define EXEC  1
@@ -56,7 +57,7 @@ int fork1(void);
 void panic(char*);
 struct cmd *parsecmd(char*);
 
-/*! 
+/*!
  * Execute cmd.  Never returns.
  */
 void
@@ -138,6 +139,7 @@ runcmd(struct cmd *cmd)
 int
 getcmd(char *buf, int nbuf)
 {
+  printf(2, "eip: 0x%x", reip());
   printf(2, "$ ");
   memset(buf, 0, nbuf);
   gets(buf, nbuf);
