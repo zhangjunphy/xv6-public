@@ -139,7 +139,6 @@ runcmd(struct cmd *cmd)
 int
 getcmd(char *buf, int nbuf)
 {
-  printf(2, "eip: 0x%x", reip());
   printf(2, "$ ");
   memset(buf, 0, nbuf);
   gets(buf, nbuf);
